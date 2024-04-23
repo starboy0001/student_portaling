@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vidaloka&family=Merriweather&family=Lora&display=swap');
+
+        body {
+            font-family: 'Vidaloka', serif;
+            background-color: #f0f0f0;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 15000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        h1 {
+            color: #000000;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+        th {
+            font-family: 'Merriweather', serif;
+            background-color: #000000;
+            color: #fff;
+        }
+        td {
+            font-family: 'Lora', serif;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        @media only screen and (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+        }
+        .messages {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center; /* Align messages to the center */
+        }
+
+        .messages li {
+            display: inline-block; /* Display messages in a single line */
+            margin-right: 10px; /* Add some spacing between messages */
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .info {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .logout{
+            font-family: 'Lora', serif;
+            color:#000000;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 93%;
+            padding: 3px 6px;
+            border-radius: 5px;
+            background-color: #FF5733;
+            font-size: 15px
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <span class="logout"><a href="{% url 'logout' %}" style="text-decoration: none !important;"><strong>Logout</strong></a></span>  
+    
+
+    <div class="container">
+        <h1>Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Math</th>
+                    <th>Science</th>
+                    <th>English</th>
+                    <th>Hindi</th>
+                    <th>Social Science</th>
+                    <th>Computer Information</th>
+                    <th>Physics</th>
+                    <th>Chemistry</th>
+                    <th>Mathematics</th>
+                    <th>Total Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.math_marks }}</td>
+                    <td>{{ student.science_marks }}</td>
+                    <td>{{ student.english_marks }}</td>
+                    <td>{{ student.hindi_marks }}</td>
+                    <td>{{ student.social_science_marks }}</td>
+                    <td>{{ student.computer_information_marks }}</td>
+                    <td>{{ student.physics_marks }}</td>
+                    <td>{{ student.chemistry_marks }}</td>
+                    <td>{{ student.mathematics_marks }}</td>
+                    <td>{{ student.total_marks }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

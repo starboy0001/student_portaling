@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif; /* Georgia font */
+            background-color: #EFEDE4; /* Black background */
+            color: #000; /* White text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #EFEDE4; 
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center; 
+        }
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #000; 
+           
+         
+        }
+        h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #000; 
+         
+        }
+        
+        label {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            color: #000000; 
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff; 
+            color: #000000; 
+            outline: none;
+        }
+        input[type="submit"] {
+            font-family: 'Georgia', serif; 
+            width: 100%;
+            padding: 8px 20px;
+            border: none;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #C05F3C;   
+            color: #000; /* Black text color */
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #a03203; 
+        }
+        .ml-2{
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Start Your Academic Quest Today!</h2>
+    <h3>Register Now</h3>
+    <form method="post">
+        {% csrf_token %}
+        
+        
+       <label for="username"></label> 
+        {{form.username}}
+        <!--<input type="text" id="username" name="username" required>-->
+
+        <label for="email"></label>
+        {{form.email}}
+       <!--  <input type="email" id="email" name="email" required> -->
+
+        <label for="password1"></label>
+        {{form.password1}}
+       <!-- <input type="password" id="password1" name="password1" required>   -->
+
+        <label for="password2"></label>
+        {{form.password2}}
+      <!--  <input type="password" id="password2" name="password2" required>   -->
+
+        <input type="submit" value="Register">
+        <label for="noacc">Already have an account? <a href="{% url 'signin' %}" class="ml-2">Login</a></label>
+        
+    
+    </form>
+
+<script>
+   
+
+//Query All input fields
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder='Username..';
+form_fields[2].placeholder='Email..';
+form_fields[3].placeholder='Enter password...';
+form_fields[4].placeholder='Re-enter Password...';
+
+
+for (var field in form_fields){	
+form_fields[field].className += ' form-control'
+}
+</script>
+
+</body>
+</html>

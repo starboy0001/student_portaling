@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #0d0d0d; 
+            color: #000000; 
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(30, 30, 30, 30);
+            background-color: #FED300; 
+        }
+        h1 {
+            font-family: 'Playfair Display', serif; /* Playfair Display font for main heading */
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-family: 'Lora', serif; /* Lora font for subheadings */
+            font-size: 32px;
+            margin-bottom: 7px;
+        }
+        label {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #bebaba;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            font-family: 'Lora', serif;
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Blue button color */
+            color: #fff; /* White text color */
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        
+        }
+        .signout{
+            font-family: 'Lora', serif;
+            color:#000000;
+            margin-left: 0px;
+           
+            width: 93%;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #FF5733;
+            font-size: 20px
+
+        }
+    </style>
+</head>
+<body>  
+
+    
+
+<div class="container">
+        <span class="signout">Hi,{{ request.user }}</span>
+        <span class="signout"><a href="{% url 'signout' %}" style="text-decoration: none !important;"><strong>Logout</strong></a></span>  
+    
+    
+    <h1>Student<br>
+    Information</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <h2>Name:</h2>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <h2>Email:</h2>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <h2>Phone:</h2>
+            <input type="text" id="phone" name="phone">
+        </div>
+
+        <div>
+          <h2>Class X Mathematics Marks:</h2>
+          <input type="text" id="math_marks" name="math_marks">
+      </div>
+
+      <div>
+        <h2>Class X Science Marks:</h2>
+        <input type="text" id="science_marks" name="science_marks">
+    </div>
+
+    <div>
+      <h2>Class X English Marks:</h2>
+      <input type="text" id="english_marks" name="english_marks">
+  </div>
+
+  <div>
+    <h2>Class X Hindi  Marks:</h2>
+    <input type="text" id="hindi_marks" name="hindi_marks">
+</div>
+
+<div>
+  <h2>Class X Social Sciences Marks:</h2>
+  <input type="text" id="social_science_marks" name="social_science_marks">
+</div>
+
+<div>
+    <h2>Class X Computer Science Marks:</h2>
+    <input type="text" id="computer_science_marks" name="computer_information_marks">
+  </div>
+
+<div>
+  <h2>Class XII Physics Marks:</h2>
+  <input type="text" id="physics_marks" name="physics_marks">
+</div>
+
+<div>
+  <h2>Class XII Chemistry Marks:</h2>
+  <input type="text" id="chemistry_marks" name="chemistry_marks">
+</div>
+
+<div>
+  <h2>Class XII Mathematics Marks:</h2>
+  <input type="text" id="mathematics_marks" name="mathematics_marks">
+</div>
+
+
+        <!-- Add more fields for subjects' marks as needed -->
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
